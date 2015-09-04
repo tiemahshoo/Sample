@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html ng-app="PracApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <div class="navbar-collapse collapse" ng-controller="UserController">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/">Home</a></li>
+                    <li><a href="#/Register">Register</a></li>
+                    <li><a ng-click="logout()">Sign Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div ng-view></div>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <!-- would normally use bundleconfig, but wasn't working for some reason...-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/angular-route.js")
+    @Scripts.Render("~/App/Scripts/App.js")
+    @Scripts.Render("~/App/Scripts/Controllers/NavbarController.js")
+    @Scripts.Render("~/App/Scripts/Controllers/RegistrationController.js")
+    @Scripts.Render("~/App/Scripts/Controllers/UserController.js")
+    @Scripts.Render("~/App/Scripts/Services/AuthFactory.js")
+    @Scripts.Render("~/App/Scripts/Services/UserFactory.js")
+</body>
+</html>
